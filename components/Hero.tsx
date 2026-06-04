@@ -11,7 +11,7 @@ export default function Hero() {
         <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
           Ver Portfólio
         </button>
-        <button className="border border-gray-300 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+        <button className="text-gray-600 border border-gray-400 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
           Falar com um especialista
         </button>
       </div>

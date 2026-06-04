@@ -1,24 +1,28 @@
 import Link from 'next/link';
+import { compileMDX } from 'next-mdx-remote/rsc';
 
-import { getSortedPostsData } from '@/lib/posts';
+import { getPostData, getSortedPostsData } from '@/lib/posts';
 
-export default function BlogPage() {
-  const allPosts = getSortedPostsData();
+export function generateStaticParams() {
+  return getSortedPostsData().map((post) => ({ slug: post.id }));
+}
+
+export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const { content: rawContent, title, date } = getPostData(slug);
+
+  const { content } = await compileMDX({ source: rawContent });
 
   return (
-    <main className="max-w-4xl mx-auto py-20 px-6">
-      <h1 className="text-4xl font-bold mb-10">Radar Tech</h1>
-      <div className="grid gap-8">
-        {allPosts.map((post) => (
-          <article key={post.id} className="border-b pb-6">
-            <Link href={`/blog/${post.id}`}>
-              <h2 className="text-2xl font-semibold hover:text-primary-500">{post.title}</h2>
-            </Link>
-            <p className="text-gray-500">{post.date}</p>
-            <p className="mt-2 text-neutral-600">{post.description}</p>
-          </article>
-        ))}
-      </div>
+    <main className="max-w-3xl mx-auto py-20 px-6">
+      <Link href="/blog" className="text-primary-500 hover:underline text-sm mb-8 inline-block">
+        ← Voltar ao Blog
+      </Link>
+      <h1 className="text-4xl font-bold mb-2">{title}</h1>
+      <p className="text-gray-500 text-sm mb-10">{date}</p>
+      <article className="prose max-w-none">
+        {content}
+      </article>
     </main>
   );
 }

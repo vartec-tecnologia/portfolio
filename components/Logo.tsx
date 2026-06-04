@@ -51,11 +51,11 @@ export function Logo({ className }: { className?: string }) {
         VAR<tspan fill="url(#g3)">TEC</tspan>
       </text>
 
-      <rect x="160" y="118" width="108" height="3" rx="2" fill="url(#g3)" />
+      <rect x="160" y="100" width="108" height="3" rx="2" fill="url(#g3)" />
 
       <text
         x="160"
-        y="148"
+        y="118"
         fontFamily="Arial, sans-serif"
         fontWeight="400"
         fontSize="13.5"
