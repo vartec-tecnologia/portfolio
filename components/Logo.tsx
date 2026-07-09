@@ -10,57 +10,50 @@ export function Logo({ className }: { className?: string }) {
     >
       <title>VarTec — Soluções em Tecnologia</title>
       <desc>
-        Logo VarTec com hexágono e raio estilizado, paleta azul
+        Logo VarTec com hexágono flat e motivo de nós conectados, wordmark em
+        Space Grotesk.
       </desc>
-      <defs>
-        <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#2563eb" />
-          <stop offset="100%" stopColor="#0EA5E9" />
-        </linearGradient>
-      </defs>
 
+      {/* Hexágono — flat, sem gradiente (design-tokens.md: --color-primary) */}
       <polygon
         points="92,22 136,46 136,94 92,118 48,94 48,46"
-        fill="url(#g3)"
-      />
-      <polygon
-        points="92,36 126,55 126,90 92,108 58,90 58,55"
-        fill="#FFFFFF"
-        opacity="0.12"
+        fill="#2563EB"
       />
 
-      <polyline
-        points="76,88 92,52 108,75 116,60"
-        fill="none"
-        stroke="#FFFFFF"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="116" cy="60" r="4" fill="#FFFFFF" />
+      {/* Motivo de nós conectados — mesma assinatura visual usada no site,
+          substitui o raio genérico por algo específico da marca (conectar sistemas) */}
+      <line x1="70" y1="88" x2="92" y2="52" stroke="#FFFFFF" strokeWidth="2" />
+      <line x1="92" y1="52" x2="114" y2="70" stroke="#FFFFFF" strokeWidth="2" />
+      <line x1="92" y1="52" x2="78" y2="30" stroke="#FFFFFF" strokeWidth="2" />
+      <circle cx="70" cy="88" r="3.5" fill="#FFFFFF" />
+      <circle cx="92" cy="52" r="3.5" fill="#FFFFFF" />
+      <circle cx="114" cy="70" r="3.5" fill="#FFFFFF" />
+      <circle cx="78" cy="30" r="3.5" fill="#FFFFFF" />
 
+      {/* Wordmark — Space Grotesk (display type do design system) */}
       <text
         x="160"
-        y="93"
-        fontFamily="'Trebuchet MS', Arial, sans-serif"
-        fontWeight="700"
-        fontSize="64"
-        fill="#1f2937"
-        letterSpacing="-2"
+        y="90"
+        fontFamily="'Space Grotesk', sans-serif"
+        fontWeight="600"
+        fontSize="58"
+        fill="#0B1220"
+        letterSpacing="-1"
       >
-        VAR<tspan fill="url(#g3)">TEC</tspan>
+        Var<tspan fill="#2563EB">Tec</tspan>
       </text>
 
-      <rect x="160" y="100" width="108" height="3" rx="2" fill="url(#g3)" />
+      <rect x="160" y="100" width="90" height="2" fill="#2563EB" />
 
+      {/* Tagline — IBM Plex Mono (utility type do design system) */}
       <text
         x="160"
-        y="118"
-        fontFamily="Arial, sans-serif"
-        fontWeight="400"
-        fontSize="13.5"
-        fill="#4b5563"
-        letterSpacing="4"
+        y="120"
+        fontFamily="'IBM Plex Mono', monospace"
+        fontWeight="500"
+        fontSize="12"
+        fill="#5B6478"
+        letterSpacing="2"
       >
         SOLUÇÕES EM TECNOLOGIA
       </text>

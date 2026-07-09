@@ -11,17 +11,30 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        ink: '#0B1220',
+        paper: '#FAFBFC',
         primary: {
-          500: '#2563eb',
-          600: '#1d4ed8',
+          DEFAULT: '#2563EB',
+          dark: '#1D4ED8',
         },
-        neutral: {
-          800: '#1f2937',
-          600: '#4b5563',
-        },
+        line: '#E4E8F0',
+        muted: '#5B6478',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        display: ['var(--font-display)', 'sans-serif'],
+        body: ['var(--font-body)', 'sans-serif'],
+        sans: ['var(--font-body)', 'sans-serif'],
+        mono: ['var(--font-mono)', 'monospace'],
+      },
+      fontSize: {
+        xs: '0.75rem',
+        sm: '0.875rem',
+        base: '1rem',
+        lg: '1.125rem',
+        xl: '1.5rem',
+        '2xl': '2rem',
+        '3xl': '2.75rem',
+        '4xl': '3.5rem',
       },
     },
   },

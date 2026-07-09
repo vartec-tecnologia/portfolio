@@ -15,8 +15,8 @@ export default function Image() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: '#1f2937',
-          color: '#ffffff',
+          background: '#0B1220', // ink — docs/design-tokens.md
+          color: '#FAFBFC', // paper — docs/design-tokens.md
           fontSize: 64,
           fontWeight: 700,
         }}

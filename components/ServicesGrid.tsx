@@ -1,3 +1,5 @@
+import { ConnectorMotif } from './ConnectorMotif';
+
 const services = [
   {
     title: 'Desenvolvimento sob medida',
@@ -29,15 +31,19 @@ const services = [
 export default function ServicesGrid() {
   return (
     <section id="servicos" className="py-20 px-6 max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-12 text-neutral-800">Nossas Soluções</h2>
+      <h2 className="text-2xl font-display font-semibold text-center mb-12 text-ink">Nossas Soluções</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service) => (
-          <div key={service.title} className="p-8 border border-gray-200 rounded-2xl hover:shadow-lg transition">
-            <h3 className="text-gray-800 text-xl font-semibold mb-3">{service.title}</h3>
-            <p className="text-gray-600 mb-3">{service.description}</p>
-            <p className="text-gray-500 text-sm">{service.example}</p>
+          <div key={service.title} className="p-8 border border-line rounded-lg">
+            <h3 className="text-ink text-xl font-body font-semibold mb-3">{service.title}</h3>
+            <p className="text-muted mb-3">{service.description}</p>
+            <p className="text-muted text-sm">{service.example}</p>
           </div>
         ))}
+      </div>
+      {/* Separador — segundo (e último) uso do ConnectorMotif previsto em design-tokens.md */}
+      <div className="relative mt-16 h-12 w-full overflow-hidden" aria-hidden="true">
+        <ConnectorMotif className="absolute inset-0 h-full w-full text-primary/10" />
       </div>
     </section>
   );

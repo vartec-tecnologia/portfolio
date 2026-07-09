@@ -50,7 +50,10 @@ draft: boolean (default: false — posts draft não aparecem em produção)
 Validado via schema Zod em `/lib/validations/post.ts`.
 
 ## Design Tokens
-Referência obrigatória antes de estilizar qualquer componente: `/docs/design-tokens.md`. Cores, tipografia e espaçamentos customizados devem ser declarados no `tailwind.config.ts`, nunca hardcoded inline (`text-[#123456]` é proibido).
+Referência obrigatória antes de estilizar qualquer componente: `/docs/design-tokens.md`. Cores, tipografia e espaçamentos customizados devem ser declarados no `tailwind.config.ts`, nunca hardcoded inline (`text-[#123456]` é proibido — exceção apenas em `Logo.tsx` e `ConnectorMotif.tsx`, que são a fonte dos valores).
+- Fontes carregadas via `next/font` (Space Grotesk, IBM Plex Sans, IBM Plex Mono) — nunca via `<link>` do Google Fonts.
+- `Logo.tsx` e `ConnectorMotif.tsx` (`/components`) são os componentes de marca — não recriar variações ad-hoc do motivo de linha/nó em outros arquivos.
+- Detalhamento de implementação: ver Spec 06 (`docs/specs/06-design-system.md`).
 
 ## Testes
 - `/lib`: cobertura de testes unitários obrigatória (parsing de posts, schemas Zod, helpers de SEO).

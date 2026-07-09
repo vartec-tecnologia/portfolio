@@ -41,4 +41,4 @@ Schema Zod conforme definido no `CLAUDE.md` (title, description, date, slug, tag
 - Busca/filtro por tag na UI (dado disponível via `getAllTags()`, mas UI é opcional para v1).
 
 ## Dependências
-Spec 02 (SEO Base) concluída.
+Spec 02 (SEO Base) concluída — **e Spec 06 (Design System) aplicada retroativamente, ver nota abaixo.**

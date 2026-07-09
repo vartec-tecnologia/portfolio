@@ -43,12 +43,14 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
   return (
     <main className="max-w-3xl mx-auto py-20 px-6">
-      <Link href="/blog" className="text-primary-500 hover:underline text-sm mb-8 inline-block">
+      <Link href="/blog" className="text-primary hover:underline text-sm mb-8 inline-block">
         ← Voltar ao Blog
       </Link>
-      <h1 className="text-4xl font-bold mb-2">{post.title}</h1>
-      <p className="text-gray-500 text-sm mb-10">{post.date}</p>
-      <article className="prose max-w-none">{content}</article>
+      <h1 className="text-3xl font-display font-semibold text-ink mb-2">{post.title}</h1>
+      <p className="font-mono text-xs text-muted mb-10">{post.date}</p>
+      <article className="prose max-w-none prose-headings:font-display prose-headings:text-ink prose-a:text-primary prose-strong:text-ink">
+        {content}
+      </article>
       <JsonLd
         data={buildArticleJsonLd({
           title: post.title,

@@ -12,7 +12,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="py-10 px-6 border-t border-gray-100 text-neutral-600">
+    <footer className="py-10 px-6 border-t border-line text-muted">
       <div className="max-w-6xl mx-auto flex flex-col items-center gap-6">
 
         {/* Ícones de redes sociais */}

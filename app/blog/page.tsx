@@ -17,21 +17,21 @@ export default function BlogPage() {
 
   return (
     <main className="max-w-4xl mx-auto py-20 px-6">
-      <h1 className="text-4xl font-bold mb-10">Radar Tech</h1>
+      <h1 className="text-3xl font-display font-semibold text-ink mb-10">Radar Tech</h1>
       <div className="grid gap-8">
         {allPosts.map((post) => (
-          <article key={post.slug} className="border-b pb-6">
+          <article key={post.slug} className="border-b border-line pb-6">
             <Link href={`/blog/${post.slug}`}>
-              <h2 className="text-2xl text-gray-800 font-semibold hover:text-gray-600">
+              <h2 className="text-2xl font-display font-semibold text-ink hover:text-primary transition">
                 {post.title}
               </h2>
             </Link>
-            <p className="text-gray-500 text-sm mt-1">{post.date}</p>
-            <p className="mt-2 text-gray-600">{post.description}</p>
+            <p className="font-mono text-xs text-muted mt-1">{post.date}</p>
+            <p className="mt-2 text-muted">{post.description}</p>
             {post.tags.length > 0 && (
               <div className="flex gap-2 mt-3 flex-wrap">
                 {post.tags.map((tag) => (
-                  <span key={tag} className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
+                  <span key={tag} className="font-mono text-xs text-muted bg-line/40 px-2 py-1 rounded-lg">
                     {tag}
                   </span>
                 ))}

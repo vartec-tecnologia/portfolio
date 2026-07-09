@@ -1,22 +1,25 @@
+import { ConnectorMotif } from './ConnectorMotif';
+
 export default function Hero() {
   return (
-    <section className="flex flex-col items-center justify-center min-h-[80vh] px-6 text-center">
-      <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-        Um parceiro técnico para o <span className="text-blue-600">ciclo completo</span> da sua tecnologia.
+    <section className="relative flex flex-col items-center justify-center min-h-[80vh] overflow-hidden px-6 text-center">
+      <ConnectorMotif className="pointer-events-none absolute inset-0 h-full w-full text-line/60" />
+      <h1 className="relative text-3xl md:text-4xl font-display font-semibold text-ink mb-6">
+        Um parceiro técnico para o <span className="text-primary">ciclo completo</span> da sua tecnologia.
       </h1>
-      <p className="text-xl text-gray-600 max-w-2xl mb-8">
+      <p className="relative text-lg text-muted max-w-2xl mb-8">
         Da automação mais simples ao produto mais complexo — contato direto com quem desenvolve, com soluções sob medida em vez de pacote pronto.
       </p>
-      <div className="flex gap-4">
+      <div className="relative flex gap-4">
         <a
           href="#contato"
-          className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+          className="bg-primary text-paper px-8 py-3 rounded-lg font-body font-semibold hover:bg-primary-dark transition"
         >
           Falar com a gente
         </a>
         <a
           href="#servicos"
-          className="text-gray-600 border border-gray-400 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
+          className="text-ink border border-line px-8 py-3 rounded-lg font-body font-semibold hover:bg-line/30 transition"
         >
           Ver soluções
         </a>

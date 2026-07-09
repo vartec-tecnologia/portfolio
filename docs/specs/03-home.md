@@ -32,4 +32,4 @@ Página inicial que funciona como vitrine dos 5 serviços conectados aos segment
 - Depoimentos/cases de clientes (fora de escopo conforme `product.md`).
 
 ## Dependências
-Spec 02 (SEO Base) concluída. Spec 05 (Contato) precisa do componente `<ContactForm />` disponível — pode ser desenvolvida em paralelo, mas a Home só fica 100% funcional após ambas.
+Spec 02 (SEO Base) concluída — **e Spec 06 (Design System) aplicada retroativamente, ver nota abaixo.** Spec 05 (Contato) precisa do componente `<ContactForm />` disponível — pode ser desenvolvida em paralelo, mas a Home só fica 100% funcional após ambas.

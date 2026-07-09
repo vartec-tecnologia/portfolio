@@ -6,16 +6,16 @@ import { submitContactForm, type ContactFormState } from '@/app/actions/contact'
 
 const initialState: ContactFormState = { success: false };
 
-const inputClass = 'p-3 text-gray-600 border border-gray-400 rounded-lg';
+const inputClass = 'p-3 text-ink border border-line rounded-lg bg-paper';
 const errorClass = 'text-red-600 text-sm -mt-2';
 
 export default function ContactForm() {
   const [state, formAction, isPending] = useActionState(submitContactForm, initialState);
 
   return (
-    <section id="contato" className="py-20 bg-gray-50 px-6">
+    <section id="contato" className="py-20 px-6">
       <div className="max-w-xl mx-auto">
-        <h2 className="text-neutral-800 text-3xl font-bold mb-8">Vamos construir algo?</h2>
+        <h2 className="text-ink text-2xl font-display font-semibold mb-8">Vamos construir algo?</h2>
         <form action={formAction} className="flex flex-col gap-4" noValidate>
           <div className="flex flex-col gap-1">
             <input name="nome" type="text" placeholder="Seu nome" className={inputClass} required minLength={2} />
@@ -58,7 +58,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={isPending}
-            className="bg-neutral-600 text-white p-3 rounded-lg font-bold hover:bg-blue-600 transition disabled:opacity-60"
+            className="bg-primary text-paper p-3 rounded-lg font-body font-semibold hover:bg-primary-dark transition disabled:opacity-60"
           >
             {isPending ? 'Enviando...' : 'Enviar Proposta'}
           </button>

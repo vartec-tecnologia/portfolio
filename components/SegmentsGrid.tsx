@@ -11,25 +11,27 @@ const segments = [
 
 export default function SegmentsGrid() {
   return (
-    <section id="segmentos" className="py-20 px-6 max-w-6xl mx-auto bg-gray-50">
-      <h2 className="text-3xl font-bold text-center mb-4 text-neutral-800">Quem a gente atende</h2>
-      <p className="text-gray-600 text-center max-w-2xl mx-auto mb-12">
+    <section id="segmentos" className="py-20 px-6 max-w-6xl mx-auto">
+      <h2 className="text-2xl font-display font-semibold text-center mb-4 text-ink">Quem a gente atende</h2>
+      <p className="text-muted text-center max-w-2xl mx-auto mb-12">
         Sem cliente ideal único — se um desses desafios é seu, provavelmente já sabemos por onde começar.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        {segments.map((segment) => (
-          <div key={segment.name} className="p-6 border border-gray-200 rounded-2xl bg-white">
-            <h3 className="text-gray-800 font-semibold mb-3">{segment.name}</h3>
-            <ul className="space-y-1">
+      <ul className="divide-y divide-line border-y border-line">
+        {segments.map((segment, index) => (
+          <li key={segment.name} className="flex flex-col gap-2 py-6 sm:flex-row sm:items-baseline sm:gap-8">
+            <span className="font-mono text-xs uppercase tracking-wider text-primary sm:w-64 sm:shrink-0">
+              {String(index + 1).padStart(2, '0')} — {segment.name}
+            </span>
+            <ul className="flex flex-wrap gap-x-6 gap-y-1">
               {segment.pains.map((pain) => (
-                <li key={pain} className="text-gray-500 text-sm">
-                  • {pain}
+                <li key={pain} className="text-muted text-sm">
+                  {pain}
                 </li>
               ))}
             </ul>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }
