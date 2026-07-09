@@ -1,39 +1,50 @@
-// lib/posts.ts
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
+import { z } from 'zod';
+
+import { postFrontmatterSchema, type PostFrontmatter } from './validations/post';
 
 const postsDirectory = path.join(process.cwd(), 'content');
 
-export function getSortedPostsData() {
-  const fileNames = fs.readdirSync(postsDirectory);
-  
-  const allPostsData = fileNames.map((fileName) => {
-    const id = fileName.replace(/\.md$/, '');
-
-    const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-
-    const matterResult = matter(fileContents);
-
-    return {
-      id,
-      ...(matterResult.data as { title: string; date: string; description: string }),
-    };
-  });
-
-  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+export interface Post extends PostFrontmatter {
+  content: string;
 }
 
-export function getPostData(id: string) {
-  const fullPath = path.join(postsDirectory, `${id}.md`);
+function readPost(dir: string, fileName: string): Post | null {
+  const fullPath = path.join(dir, fileName);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const { data, content } = matter(fileContents);
 
-  const matterResult = matter(fileContents);
+  const parsed = postFrontmatterSchema.safeParse(data);
+  if (!parsed.success) {
+    console.warn(
+      `[posts] Frontmatter inválido em "${fileName}", post ignorado:`,
+      z.treeifyError(parsed.error)
+    );
+    return null;
+  }
 
-  return {
-    id,
-    content: matterResult.content, // O texto do post
-    ...(matterResult.data as { title: string; date: string }),
-  };
+  return { ...parsed.data, content };
+}
+
+export function getAllPosts(dir: string = postsDirectory): Post[] {
+  const fileNames = fs.readdirSync(dir).filter((name) => name.endsWith('.md') || name.endsWith('.mdx'));
+
+  const posts = fileNames
+    .map((fileName) => readPost(dir, fileName))
+    .filter((post): post is Post => post !== null)
+    .filter((post) => (process.env.NODE_ENV === 'production' ? !post.draft : true));
+
+  return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
+export function getPostBySlug(slug: string, dir: string = postsDirectory): Post | null {
+  return getAllPosts(dir).find((post) => post.slug === slug) ?? null;
+}
+
+export function getAllTags(dir: string = postsDirectory): string[] {
+  const tags = new Set<string>();
+  getAllPosts(dir).forEach((post) => post.tags.forEach((tag) => tags.add(tag)));
+  return Array.from(tags).sort();
 }

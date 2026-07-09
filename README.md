@@ -1,24 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Site de portfólio da VarTec — Next.js 16 (App Router), TypeScript, Tailwind CSS. Ver `CLAUDE.md` para arquitetura e padrões de código.
 
 ## Getting Started
 
-First, run the development server:
+Copie `.env.example` para `.env` e preencha as variáveis:
+
+```bash
+cp .env.example .env
+```
+
+| Variável | Descrição |
+|---|---|
+| `CONTACT_WEBHOOK_URL` | URL do webhook (Make/Zapier) que recebe os leads do formulário de contato. |
+| `NEXT_PUBLIC_SITE_URL` | URL pública do site, usada em metadata, Open Graph e sitemap. |
+
+Depois, rode o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Testes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run test
+```
+
+Executa a suíte Vitest (foco em `/lib`: parsing de posts, schemas Zod, helpers de SEO).
 
 ## Learn More
 
