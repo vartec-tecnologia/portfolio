@@ -2,9 +2,9 @@ export function Logo({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 680 200"
-      width="680"
-      height="200"
+      viewBox="40 10 340 125"
+      width="340"
+      height="125"
       role="img"
       className={className}
     >

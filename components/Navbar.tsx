@@ -6,8 +6,8 @@ export default function Navbar() {
   return (
     <nav className="w-full border-b border-line bg-paper overflow-visible">
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="relative h-10 mt-1 sm:h-12 w-28 sm:w-44 lg:w-52 shrink-0 overflow-visible">
-          <Logo className="absolute top-1/2 left-0 -translate-y-1/2 mt-1.25 -ml-4 w-56 sm:mt-0 sm:ml-0 sm:w-64 lg:w-100 h-auto" />
+        <div className="relative h-14 mt-2 mb-2 sm:h-16 w-40 sm:w-56 lg:w-64 shrink-0 overflow-visible">
+          <Logo className="absolute top-1/2 left-0 -translate-y-1/2 mt-0.6 -ml-1 w-44 sm:ml-0 sm:w-60 lg:w-72 h-auto" />
         </div>
 
         <div className="flex items-center gap-6 font-body font-medium text-muted">
